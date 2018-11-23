@@ -135,6 +135,22 @@ class Report
     /**
      * @return mixed
      */
+    public function getReporterProfession()
+    {
+        return $this->reporterProfession;
+    }
+
+    /**
+     * @param mixed $reporterProfession
+     */
+    public function setReporterProfession($reporterProfession): void
+    {
+        $this->reporterProfession = $reporterProfession;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getDate()
     {
         return $this->date;
@@ -146,6 +162,70 @@ class Report
     public function setDate($date): void
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPatientSex()
+    {
+        return $this->patientSex;
+    }
+
+    /**
+     * @param mixed $patientSex
+     */
+    public function setPatientSex($patientSex): void
+    {
+        $this->patientSex = $patientSex;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPatientAge()
+    {
+        return $this->patientAge;
+    }
+
+    /**
+     * @param mixed $patientAge
+     */
+    public function setPatientAge($patientAge): void
+    {
+        $this->patientAge = $patientAge;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhileEmergency()
+    {
+        return $this->whileEmergency;
+    }
+
+    /**
+     * @param mixed $whileEmergency
+     */
+    public function setWhileEmergency($whileEmergency): void
+    {
+        $this->whileEmergency = $whileEmergency;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContext()
+    {
+        return $this->context;
+    }
+
+    /**
+     * @param mixed $context
+     */
+    public function setContext($context): void
+    {
+        $this->context = $context;
     }
 
     /**
@@ -163,4 +243,86 @@ class Report
     {
         $this->textWhatHappened = $textWhatHappened;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTextSituationNow()
+    {
+        return $this->textSituationNow;
+    }
+
+    /**
+     * @param mixed $textSituationNow
+     */
+    public function setTextSituationNow($textSituationNow): void
+    {
+        $this->textSituationNow = $textSituationNow;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTextHowToPrevent()
+    {
+        return $this->textHowToPrevent;
+    }
+
+    /**
+     * @param mixed $textHowToPrevent
+     */
+    public function setTextHowToPrevent($textHowToPrevent): void
+    {
+        $this->textHowToPrevent = $textHowToPrevent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPatientHarmed()
+    {
+        return $this->patientHarmed;
+    }
+
+    /**
+     * @param mixed $patientHarmed
+     */
+    public function setPatientHarmed($patientHarmed): void
+    {
+        $this->patientHarmed = $patientHarmed;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContributingFactors()
+    {
+        return $this->contributingFactors;
+    }
+
+    /**
+     * @param mixed $contributingFactors
+     */
+    public function setContributingFactors($contributingFactors): void
+    {
+        $this->contributingFactors = $contributingFactors;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOccurrence()
+    {
+        return $this->occurrence;
+    }
+
+    /**
+     * @param mixed $occurrence
+     */
+    public function setOccurrence($occurrence): void
+    {
+        $this->occurrence = $occurrence;
+    }
+
+
 }
