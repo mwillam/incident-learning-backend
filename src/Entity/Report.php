@@ -4,14 +4,13 @@ namespace App\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="report")
  */
-class Report extends Entity
+class Report
 {
     /**
      * @ORM\Id
@@ -21,7 +20,7 @@ class Report extends Entity
     private $id;
 
     /**
-     * @ORM\Column(type="string", nullable="true")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $reporterName;
 
@@ -37,18 +36,18 @@ class Report extends Entity
     private $reporterProfession;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $date;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * @Assert\Choice({"w", "m"})
      */
     private $patientSex;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      * @Assert\Range(
      *     min=0,
      *     max=150,
@@ -95,12 +94,12 @@ class Report extends Entity
     private $patientHarmed;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="json_array", nullable=true)
      */
     private $contributingFactors;
 
     /**
-     * @ORM\Column(type="integer", nullable="true")
+     * @ORM\Column(type="integer", nullable=true)
      * @Assert\Range(
      *     min=0,
      *     max=10,
