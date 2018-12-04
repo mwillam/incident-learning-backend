@@ -1,3 +1,4 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+reports:
+    path: /reports
+    methods: POST
+    controller: App\Controller\ReportController::newReport

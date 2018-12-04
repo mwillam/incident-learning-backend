@@ -32,5 +32,17 @@ services:
             - '@doctrine.orm.entity_manager'
             - '@router'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    App\Listener\CorsListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest}
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse}
+
+    App\Listener\JsonApiResponseListener:
+        arguments:
+            - '@App\Serializer\Serializer'
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse}
+
+    App\Service\RequestAnalyzer:
+        arguments:
+            - '@doctrine.orm.entity_manager'
