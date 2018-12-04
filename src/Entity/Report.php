@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="report")
+ * @ORM\Entity(repositoryClass="App\Repository\ReportRepository")
+ * @ORM\Table(name="reports")
  */
 class Report
 {
@@ -60,7 +60,7 @@ class Report
     /**
      * @ORM\Column(type="boolean")
      */
-    private $whileEmergency;
+    private $whileEmergency=0;
 
     /**
      * @ORM\Column(type="string")
@@ -324,5 +324,19 @@ class Report
         $this->occurrence = $occurrence;
     }
 
+    public function setCreatedNow()
+    {
+        $this->date = $this->roundDateTime(new \DateTime('now'));
+    }
+
+    private function roundDateTime(\DateTime $dateTime)
+    {
+        $microseconds = $dateTime->format('u');
+        $roundedDateTime = new \DateTime($dateTime->format('Y-m-d H:i:s'));
+        if ($microseconds > 500000) {
+            $roundedDateTime->add(new \DateInterval('PT1S'));
+        }
+        return $roundedDateTime;
+    }
 
 }
