@@ -8,6 +8,7 @@ use App\Response\JsonApiNoContentResponse;
 use App\Response\JsonApiResponse;
 use App\Serializer\Serializer;
 use App\Service\RequestAnalyzer;
+use App\Exception\JsonApiNotFoundException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,6 +76,21 @@ class ReportController extends Controller
         }
 
         return new JsonApiResponse($reports);
+    }
+
+    /**
+     * @Route("/reports/{reportId}", methods={"GET", "OPTIONS"})
+     */
+    public function getReportById($reportId)
+    {
+        $report = $this->entityManager->getRepository(Report::class)
+            ->findOneBy(['id' => $reportId]);
+
+        if (!isset($report)) {
+            throw new JsonApiNotFoundException(Report::class, $reportId);
+        }
+
+        return new JsonApiResponse($report);
     }
 
 }
